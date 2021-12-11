@@ -14,7 +14,7 @@ class Driver(models.Model):
 
 
 class Vehicle(models.Model):
-    driver_id = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    driver_id = models.ForeignKey(Driver, on_delete=models.CASCADE, blank=True, null=True)
     make = models.CharField(max_length=50)
     model = models.CharField(max_length=50)
     plate_number = models.CharField(max_length=15, validators=[plate_number_validator])
