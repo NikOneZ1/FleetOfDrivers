@@ -6,6 +6,10 @@ from .models import Driver, Vehicle
 
 
 class DriversList(generics.ListCreateAPIView):
+    """
+    POST: Create driver
+    GET: Get list of drivers
+    """
     serializer_class = DriverSerializer
 
     def get_queryset(self):
@@ -21,11 +25,20 @@ class DriversList(generics.ListCreateAPIView):
 
 
 class GetUpdateDestroyDriver(generics.RetrieveUpdateDestroyAPIView):
+    """
+    GET: Get information about driver
+    UPDATE: Update information about driver
+    DELETE: Destroy driver object
+    """
     queryset = Driver.objects.all()
     serializer_class = DriverSerializer
 
 
 class VehicleList(generics.ListCreateAPIView):
+    """
+    POST: Create vehicle
+    GET: Get list of drivers
+    """
     serializer_class = VehicleSerializer
 
     def get_queryset(self):
@@ -38,5 +51,10 @@ class VehicleList(generics.ListCreateAPIView):
 
 
 class GetUpdateDestroyVehicle(generics.RetrieveUpdateDestroyAPIView):
+    """
+    GET: Get information about vehicle
+    UPDATE: Update information about vehicle
+    DELETE: Destroy vehicle object
+    """
     queryset = Vehicle.objects.all()
     serializer_class = VehicleSerializer
